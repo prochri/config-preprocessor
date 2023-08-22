@@ -18,9 +18,6 @@ let use_env = ref true
 let usage = "\
 usage: " ^ Sys.argv.(0) ^ " [--help] [-d disclaimer] [-p parenthesies] [-c comment_string] [-s var val]* infile [outfile]
 
-The parameters -p and -c can also be given in the first line of the input:
-  // build_conf: p \"<>\" c \"//\"
-
 Write configs with additional syntax. Examples:
   set $a $b\t\t\t-- recursive assingments possible
   include $p\t\t\t-- include other files as if they are in this file
@@ -32,8 +29,10 @@ Write configs with additional syntax. Examples:
   ${shellcommand}\t\t-- execute shell command and put output here
   $${a + $c}\t\t\t-- calculate with basic integer operations
 
-Parameters:
-"
+The parameters -p and -c can also be given in the first line of the input:
+  // build_conf: p \"<>\" c \"//\"
+
+Parameters:"
 
 let speclist = [
   ("-s", Arg.Tuple [
